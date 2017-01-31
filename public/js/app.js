@@ -2,8 +2,8 @@ $(function() {
   'use strict';
   var APPID = "c200d66e223bd37f3faa3aca4cb7f9ab";
   var WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/";
-  var CURRENT_WEATHER_API_URL = WEATHER_API_URL + "weather?APPID=" + APPID + "&units=imperial";
-  var FORECAST_WEATHER_API_URL = WEATHER_API_URL + "forecast/?APPID=" + APPID + "&units=imperial";
+  var CURRENT_WEATHER_API_URL = '/api/current-weather/?';
+  var FORECAST_WEATHER_API_URL = '/api/forecast-weather/?';
   var UPDATE_FREQUENCY = 1000 * 60 * 60;
   var DAYS_ENUM = {
     "0": "Sunday",
@@ -96,7 +96,6 @@ $(function() {
       var that = this;
       navigator.geolocation.getCurrentPosition(function(position) {
         that.addEventListeners();
-        console.log(position.coords.latitude)
         that.latitude = position.coords.latitude;
         that.longitude = position.coords.longitude;
         that.changePageToCurrentWeather();
@@ -118,11 +117,11 @@ $(function() {
       });
     },
     fetchCurrentWeather: function() {
-      this.fetch(CURRENT_WEATHER_API_URL + '&lat=' + this.latitude + '&lon=' + this.longitude,
+      this.fetch(CURRENT_WEATHER_API_URL + 'lat=' + this.latitude + '&lon=' + this.longitude,
         this.updateCurrentWeather);
       },
     fetchForecastWeather: function() {
-      this.fetch(FORECAST_WEATHER_API_URL + '&lat=' + this.latitude + '&lon=' + this.longitude,
+      this.fetch(FORECAST_WEATHER_API_URL + 'lat=' + this.latitude + '&lon=' + this.longitude,
         this.updateForecastWeather);
       },
     renderCurrentWeather: function() {
