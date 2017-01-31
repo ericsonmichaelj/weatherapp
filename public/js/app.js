@@ -96,6 +96,7 @@ $(function() {
       var that = this;
       navigator.geolocation.getCurrentPosition(function(position) {
         that.addEventListeners();
+        console.log(position.coords.latitude)
         that.latitude = position.coords.latitude;
         that.longitude = position.coords.longitude;
         that.changePageToCurrentWeather();
