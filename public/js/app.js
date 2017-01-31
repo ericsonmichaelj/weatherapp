@@ -1,7 +1,7 @@
 $(function() {
   'use strict';
   var APPID = "c200d66e223bd37f3faa3aca4cb7f9ab";
-  var WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/";
+  var WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/";
   var CURRENT_WEATHER_API_URL = WEATHER_API_URL + "weather?APPID=" + APPID + "&units=imperial";
   var FORECAST_WEATHER_API_URL = WEATHER_API_URL + "forecast/?APPID=" + APPID + "&units=imperial";
   var UPDATE_FREQUENCY = 1000 * 60 * 60;
